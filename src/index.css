@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --mainBgColor: #e1e1b8; /* Light yellow background */
+  --secondaryBgColor: #d8e8e8; /* Light cyan background */
+  --borderColor1: #7f7f7f; /* Dark gray borders */
+  --borderColor2: #a9a9a9; /* Lighter gray borders */
+  --textColorMain: #3a3a3a; /* Dark gray text */
+  --textColorSecondary: #000; /* Black text */
+  --themeColorMain: #a5b326; /* Retro pink */
+  --themeColorSecondary: #f7e5d1; /* Light cream/beige */
+  --themeColorDelete: #000000; /* Retro brown */
+  --transitionTime: 0.3s; /* Added for transitions */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive; /* Retro font */
+  transition: color var(--transitionTime), background-color var(--transitionTime);
+}
+
+a {
+  color: #408080; /* Teal color for links */
+
+  /* Retro underline effect */
+  text-decoration: none;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #408080; /* Teal color */
+  transition: width 0.3s;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+body {
+  background-color: var(--mainBgColor);
+  color: var(--textColorMain);
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+/* Login & Register Pages */
+
+.auth--container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form--wrapper {
+  width: 600px;
+  width: 600px;
+  padding: 2em;
+}
+
+.field--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.5em 0;
+}
+
+/* Form Input Styling */
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  background: var(--mainBgColor);
+  border: none;
+  border-bottom: 1px solid var(--borderColor1);
+  padding: 1rem;
+  border-radius: 3px;
+  width: 100%;
+  color: var(--textColorMain);
+  outline: none;
+  font-size: 18px;
+  text-shadow: none !important;
+}
+
+/* Button Styling */
+
+.btn {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn--lg {
+  padding: 1em 2em;
+}
+
+.btn--main {
+  background-color: var(--themeColorMain);
+  color: var(--textColorMain);
+}
+
+.btn--secondary {
+  background-color: var(--themeColorSecondary);
+  color: var(--textColorMain);
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+/* Header Styling */
+
+#header--wrapper {
+  background-color: var(--mainBgColor);
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid var(--borderColor1);
+  border-bottom: none;
+}
+
+.header--link {
+  color: var(--textColorSecondary);
+  cursor: pointer;
+}
+
+.header--link:hover {
+  color: var(--themeColorSecondary);
+}
+
+/* Room Styling */
+
+.room--container {
+  flex: 1; /* Fill remaining space within the container */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+  padding: 2em;
+  background-color: var(--secondaryBgColor);
+  border-radius: 0 0 10px 10px;
+  border: 1px solid var(--borderColor1);
+  margin-bottom: 120px;
+}
+
+#message--form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  padding: 10px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  z-index: 100; 
+}
+
+.send-btn--wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 1em;
+  z-index: 1;
+}
+
+.message--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message--body {
+  padding: 0.5em 0;
+  color: var(--textColorSecondary);
+  background-color: var(--themeColorMain);
+  padding: 1em;
+  border-radius: 20px;
+  width: fit-content;
+  max-width: calc(100% - 20px); /* Adjusted to account for the scrollbar */
+  word-wrap: break-word;
+  z-index: 1; 
+}
+
+.message--body--owner {
+  border: 1px solid var(--themeColorMain);
+  background-color: var(--secondaryBgColor);
+}
+
+.message-timestamp {
+  margin-left: 1em;
+  color: var(--textColorSecondary);
+}
+
+.delete--btn {
+  color: var(--themeColorDelete);
+  cursor: pointer;
+  width: 16px;
+}
+
+.delete--btn:hover {
+  color: red;
+}
+
+
