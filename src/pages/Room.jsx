@@ -26,7 +26,7 @@ const Room = () => {
             "databases.*.collections.*.documents.*.create"
           )
         ) {
-          console.log("A MESSAGE WAS CREATED");
+          // console.log("A MESSAGE WAS CREATED");
           setMessages((prevState) => [response.payload, ...prevState]);
         }
 
@@ -35,7 +35,7 @@ const Room = () => {
             "databases.*.collections.*.documents.*.update"
           )
         ) {
-          console.log("A MESSAGE WAS UPDATED");
+          // console.log("A MESSAGE WAS UPDATED");
           setMessages((prevState) =>
             prevState.map((message) =>
               message.$id === response.payload.$id ? response.payload : message
@@ -48,7 +48,7 @@ const Room = () => {
             "databases.*.collections.*.documents.*.delete"
           )
         ) {
-          console.log("A MESSAGE WAS DELETED!!!");
+          // console.log("A MESSAGE WAS DELETED!!!");
           setMessages((prevState) =>
             prevState.filter((message) => message.$id !== response.payload.$id)
           );
@@ -56,7 +56,7 @@ const Room = () => {
       }
     );
 
-    console.log("unsubscribe:", unsubscribe);
+    // console.log("unsubscribe:", unsubscribe);
 
     return () => {
       unsubscribe();
@@ -68,13 +68,13 @@ const Room = () => {
       DATABASE_ID,
       COLLECTION_ID_MESSAGES
     );
-    console.log(response.documents);
+    // console.log(response.documents);
     setMessages(response.documents);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("MESSAGE:", messageBody);
+    // console.log("MESSAGE:", messageBody);
 
     const permissions = [Permission.write(Role.user(user.$id))];
 
@@ -93,7 +93,7 @@ const Room = () => {
       permissions
     );
 
-    console.log("RESPONSE:", response);
+    // console.log("RESPONSE:", response);
     setMessageBody("");
   };
 
